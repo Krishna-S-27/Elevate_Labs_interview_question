@@ -1,0 +1,77 @@
+1.What is normalization?
+Ans: Normalization is the process of organizing data in a database to reduce redundancy and improve data integrity. It involves dividing a database into tables and defining relationships to ensure efficient storage.
+-  Goal: Eliminate duplicate data and avoid update anomalies
+-  Done through "normal forms" (1NF, 2NF, 3NF, etc.)
+
+2️.Primary Key vs Foreign Key
+| Key Type | Description | Purpose | 
+| Primary Key | Uniquely identifies each record in a table | Ensures row uniqueness | 
+| Foreign Key | Links one table to another | Maintains referential integrity | 
+
+3️.What are Constraints?
+Constraints are rules applied to table columns to enforce data validity and consistency.
+-  Examples include:
+- NOT NULL: Disallows empty values
+- UNIQUE: Ensures all values are distinct
+- CHECK: Validates condition on values
+- PRIMARY KEY and FOREIGN KEY
+
+4️.What is a Surrogate Key?
+A surrogate key is an artificial identifier for a record, typically a system-generated value (like an auto-incremented number) used instead of a natural key.
+-  Usually used when no suitable natural key exists
+- Commonly integer-based and not meaningful to users
+
+5️.How to Avoid Data Redundancy
+-  Normalize your data
+-  Use foreign keys to relate tables
+-  Apply appropriate constraints
+-  Avoid storing repeated data unless absolutely necessary
+
+6️.What is an ER Diagram?
+An Entity-Relationship (ER) diagram visually represents entities in a system and their relationships.
+-  Entities = tables (e.g., Customer, Orders)
+-  Relationships = how entities interact
+- Helps in designing a logical database structure
+
+7️.Types of Relationships in DBMS
+| Type | Description | Example | 
+| One-to-One | One record in A ↔ one in B | One passport ↔ One person | 
+| One-to-Many | One record in A ↔ many in B | One customer ↔ Many orders | 
+| Many-to-Many | Many records in A ↔ many in B | Students ↔ Courses | 
+
+
+8️.Purpose of AUTO_INCREMENT
+This attribute automatically generates unique values for a column when new rows are inserted—typically used for surrogate or primary keys.
+-  Saves effort from manually assigning IDs
+- Ensures uniqueness
+
+9️.Default Storage Engine in MySQL
+In MySQL, the default storage engine is usually:
+- InnoDB
+-  Supports transactions
+-  Enforces foreign keys
+-  Offers row-level locking for better performance
+
+10. What is a composite key?
+A Composite key is a type of primary key formed by combining
+two or more columns in a database table to uniquely identify a record.
+It's used when no single column is sufficient on its own to ensure uniqueness.
+
+Example:
+Imagine a table called `Enrollment` that tracks which students are enrolled in 
+which courses. Neither `StudentID` nor `CourseID` alone can uniquely identify a 
+row—because a student can enroll in multiple courses, and a course can have many
+students.
+
+So, you’d use:
+
+ `StudentID` + `CourseID` as a composite primary key
+
+This way, each combination is unique, and no duplicate enrollment entries are 
+allowed.
+
+
+Key Traits of Composite Keys:
+- Used in many-to-many relationship tables
+- Prevent duplicate records based on combined columns
+- Essential for enforcing business rules across related entities
