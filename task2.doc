@@ -1,0 +1,100 @@
+1️. How to Open and Write to a File
+Use the built-in `open()` function:
+```python
+with open("file.txt", "w") as f:
+    f.write("Hello, world!")
+```
+- `"w"` mode opens for writing (and overwrites if file exists).
+- `with` ensures the file is properly closed.
+
+---
+
+2️. Common File Modes
+
+| Mode | Purpose                             |
+|------|-------------------------------------|
+| `"r"`  | Read (default)                      |
+| `"w"`  | Write (overwrites existing)         |
+| `"a"`  | Append (adds to the end)            |
+| `"x"`  | Create (fails if file exists)       |
+| `"b"`  | Binary mode                         |
+| `"t"`  | Text mode (default)                 |
+| `"r+"` | Read and write                      |
+
+---
+
+3️. Use of `.strip()`
+Removes leading and trailing whitespace (including `\n`) from strings.
+
+
+line = "  hello\n"
+cleaned = line.strip()  # "hello"
+
+
+4️. How Lists Work in Python
+Lists are ordered, mutable sequences of elements:
+
+```python
+my_list = [1, "two", 3.0]
+```
+- You can add, remove, access, and modify elements.
+- Supports slicing: `my_list[1:]` gives all except the first.
+
+5️. `append()` vs `insert()`
+
+| Method     | What It Does                             |
+|------------|------------------------------------------|
+| `append(x)`| Adds `x` to the end of the list          |
+| `insert(i, x)`| Inserts `x` at index `i`, shifting others |
+
+
+lst = [1, 2]
+lst.append(3)      # [1, 2, 3]
+lst.insert(1, "a") # [1, "a", 2, 3]
+
+
+6️. Removing Elements from a List
+
+- `remove(x)`: removes first occurrence of `x`
+- `pop(i)`: removes and returns element at index `i`
+- `del`: removes by index or slice
+
+
+lst = [1, 2, 3]
+lst.remove(2)  # [1, 3]
+
+
+7️. Context Managers (`with` Statement)
+Manage resources like files, ensuring they’re properly closed even if errors occur.
+
+
+with open("data.txt") as file:
+    contents = file.read()
+
+
+8️. Looping Through a File Line by Line
+Efficient way to read big files:
+
+with open("file.txt") as f:
+    for line in f:
+        print(line.strip())
+
+
+9️. What Is a Data Structure?
+A way of organizing and storing data for efficient access and modification.
+
+ Examples:
+- Lists, Tuples, Dictionaries, Sets
+- More advanced: Stacks, Queues, Trees, Graphs
+
+
+10. What Happens If the File Doesn’t Exist?
+- In `"r"` mode: raises `FileNotFoundError`
+- In `"w"` or `"a"`: creates a new file
+- Use `try/except` to handle errors gracefully
+
+try:
+    with open("missing.txt", "r") as f:
+        print(f.read())
+except FileNotFoundError:
+    print("File does not exist.")
